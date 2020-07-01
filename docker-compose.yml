@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    database:
+        image: postgres
+        environment:
+            - POSTGRES_USER=urlgo
+            - POSTGRES_PASSWORD=testpassword
+            - POSTGRES_DB=urlgo
+        ports:
+            - '5432:5432'
+        volumes:
+            - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+
+volumes:
+    database-data:
